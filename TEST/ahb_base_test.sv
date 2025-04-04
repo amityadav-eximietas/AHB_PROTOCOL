@@ -10,34 +10,33 @@
 
 class ahb_base_test extends uvm_test;
 	
-  //-------factory registration
+  // factory registration
   `uvm_component_utils(ahb_base_test)
 	
-  //------- AHB ENVIRONMENT
+  // environment class handle
   ahb_env env_h;
+  ahb_env_config cfg_h;
 	
-  //-------constructor 
-	extern function new(string name = "", uvm_component parent = null);
-
-	extern function void end_of_elaboration_phase (uvm_phase phase);
-	   
-   //build phase
-   extern function void build_phase (uvm_phase phase);
+  // all function 
+  extern function new(string name = "", uvm_component parent = null);
+  extern function void end_of_elaboration_phase (uvm_phase phase);
+  extern function void build_phase (uvm_phase phase);
 	  
 endclass : ahb_base_test
 
-//constructor
+// constructor
 function ahb_base_test::new(string name = "", uvm_component parent = null);
   super.new(name,parent);
 endfunction
 
-//end of elaboration	
+// end of elaboration	
 function void ahb_base_test::end_of_elaboration_phase (uvm_phase phase);
   uvm_top.print_topology();
 endfunction
 
-//build phase
+// build phase
 function void ahb_base_test::build_phase (uvm_phase phase);
+  //creating environment
   env_h=ahb_env::type_id::create("env_h",this);
 endfunction 
 

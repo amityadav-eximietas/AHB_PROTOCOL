@@ -3,61 +3,64 @@
 //  owner name    : amit yadav & anupam mathur
 //  module name   : ahb scoreboard class
 //  company name  : eximietas design
-//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+`ifndef AHB_SCOREBOARD_SV
+`define AHB_SCOREBOARD_SV
 
 `uvm_analysis_imp_decl(_mas_mon)
 `uvm_analysis_imp_decl(_slv_mon)
 
 class ahb_scoreboard extends uvm_scoreboard;
+
+  parameter ADDR_WIDTH = 32, DATA_WIDTH = 32;
+
+  // Factory registration
   `uvm_component_utils(ahb_scoreboard)
-    parameter ADDR_WIDTH=32, DATA_WIDTH = 32; 
-  
-  // Transaction class handle
-  ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h;
-  
-  // Constructor
-  extern function new(string name="ahb_scoreboard", uvm_component parent=null);
-  
-  // Build phase
+
+  // Data queues
+  bit [DATA_WIDTH-1:0] hrdata_q[$]; 
+  bit [DATA_WIDTH-1:0] hwdata_q[$];  
+  bit [ADDR_WIDTH-1:0] haddr_q[$];  
+
+  // Analysis exports
+  uvm_analysis_imp_mas_mon #(ahb_seq_item, ahb_scoreboard) mas_mon_export;
+  uvm_analysis_imp_slv_mon #(ahb_slv_seq_item, ahb_scoreboard) slv_mon_export;
+
+  // Constructor and phases
+  extern function new(string name = "ahb_scoreboard", uvm_component parent = null);
   extern function void build_phase(uvm_phase phase);
-  
-  // Write function for data from monitor
-  extern function void write_mas_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h2);
-  
-  // Write function for expected data from reference model
-  extern function void write_slv_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h3);
-  
-  // Run phase
-  extern task run_phase(uvm_phase phase);
-  
-  // Compare task
-  extern task compare();
+  extern function void write_mas_mon(ahb_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h);
+  extern function void write_slv_mon(ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h);
+  extern function void check_phase(uvm_phase phase);
 
 endclass: ahb_scoreboard
 
-// Constructor implementation
-function ahb_scoreboard::new(string name="ahb_scoreboard", uvm_component parent=null);
+// Constructor
+function ahb_scoreboard::new(string name = "ahb_scoreboard", uvm_component parent = null);
   super.new(name, parent);
-  trans_h = new();
-endfunction: new
+endfunction
 
-// Build phase implementation
+// Build phase
 function void ahb_scoreboard::build_phase(uvm_phase phase);
   super.build_phase(phase);
-endfunction: build_phase
+  mas_mon_export = new("mas_mon_export", this);
+  slv_mon_export = new("slv_mon_export", this);
+endfunction
 
-// Write function for data from monitor
-function void ahb_scoreboard::write_mas_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h2);
-endfunction: write_mas_mon
+// Write method for slave monitor
+function void ahb_scoreboard::write_slv_mon(ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h);
+ 
+endfunction
 
-// Write function for expected data from reference model
-function void ahb_scoreboard::write_slv_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h3);
-endfunction: write_slv_mon
+// Write method for master monitor
+function void ahb_scoreboard::write_mas_mon(ahb_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h);
 
-// Run phase implementation
-task ahb_scoreboard::run_phase(uvm_phase phase);
-endtask: run_phase
+endfunction
 
-// Compare task implementation
-task ahb_scoreboard::compare();
-endtask: compare
+// Check phase 
+function void ahb_scoreboard::check_phase(uvm_phase phase);
+
+endfunction
+
+`endif
