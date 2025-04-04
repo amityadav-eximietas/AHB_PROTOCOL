@@ -1,0 +1,1697 @@
+# //  Questa Sim-64
+# //  Version 10.7c win64 Aug 18 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 13:19:26 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 13:19:27 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 13:19:27 on Apr 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt3
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlftv8037n".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftv8037n
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f575 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 40
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:31:52 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:31:53 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 14:31:57 on Apr 04,2025, Elapsed time: 1:12:30
+# Errors: 3, Warnings: 3
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:31:57 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlftrkttdd".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftrkttdd
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f575 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 40
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:35:37 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# ** Warning: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(35): (vlog-2643) Unterminated string literal continues onto next line.
+# ** Warning: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(44): (vlog-2643) Unterminated string literal continues onto next line.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(50): Unterminated string literal started on line 44.
+# ** Error: (vlog-13004) ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(44.47): syntax error, unexpected type name. The type 'ahb_common_object' is defined at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(9).
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** while parsing macro expansion: 'uvm_component_utils' starting at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14): near "#": syntax error, unexpected '#', expecting ')' or ','.
+# ** Warning: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** while parsing macro expansion: 'uvm_component_utils' starting at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14): (vlog-2953) Incorrect usage of keyword 'static'.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** while parsing macro expansion: 'uvm_component_utils' starting at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14): near "function": syntax error, unexpected function, expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** while parsing macro expansion: 'uvm_component_utils' starting at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14): near "endfunction": syntax error, unexpected endfunction, expecting endtask.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** while parsing macro expansion: 'uvm_component_utils' starting at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(14): near "endfunction": syntax error, unexpected endfunction, expecting endtask.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(26): Illegal declaration after the statement near line '17'.  Declarations must precede statements.  Look for stray semicolons.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(49): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(50): 'super.new()' call can be made only from within a class constructor.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(51): near "endfunction": syntax error, unexpected endfunction, expecting endtask.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(54): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(63): near "endfunction": syntax error, unexpected endfunction, expecting endtask.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(66): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(97): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(97): near "::": syntax error, unexpected ::, expecting ';' or '('.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(103): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(103): 'ahb_slv_driver' already exists; must not be redefined as a task.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(103): near "::": syntax error, unexpected ::, expecting ';' or '('.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(108): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(108): 'ahb_slv_driver' already exists; must not be redefined as a task.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(108): near "::": syntax error, unexpected ::, expecting ';' or '('.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(116): (vlog-2164) Class or package 'ahb_slv_driver' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(116): 'ahb_slv_driver' already exists; must not be redefined as a task.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(20)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_driver.sv(116): near "::": syntax error, unexpected ::, expecting ';' or '('.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_slv_agent.sv(23): near "#": syntax error, unexpected '#', expecting IDENTIFIER or '='.
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env.sv(18): near "#": syntax error, unexpected '#', expecting IDENTIFIER or '='.
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Importing package ahb_slv_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env_pkg.sv(18): Recursive import of package ahb_slv_pkg found while importing package ahb_env_pkg.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env.sv(18): syntax error, unexpected #, expecting IDENTIFIER or '='.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(17): Invalid type 'ahb_env'. Please check the type of the variable 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2164) Class or package 'ahb_env' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): Identifier 'ahb_env' is not directly visible.
+#    Found multiple Declaration of 'ahb_env' through wildcard imports from these packages : ahb_env_pkg, ahb_env_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): Illegal to use typedef "ahb_env" as a variable.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): near "::": syntax error, unexpected ::, expecting ';'.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at syntax error, unexpected '(', expecting class.
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_test_pkg.sv(18): Recursive import of package ahb_slv_pkg found while importing package ahb_test_pkg.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(17): Invalid type 'ahb_env'. Please check the type of the variable 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2164) Class or package 'ahb_env' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): Identifier 'ahb_env' is not directly visible.
+#    Found multiple Declaration of 'ahb_env' through wildcard imports from these packages : ahb_env_pkg, ahb_env_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'ahb_env'.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): syntax error, unexpected ::, expecting ';'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TOP/ahb_tb_top.sv(14): Illegal use of 'automatic' for variable declaration (clk).
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(22)
+# ** at ../ENV/ahb_env_pkg.sv(24): near "endpackage": syntax error, unexpected "SystemVerilog keyword 'endpackage'", expecting class.
+# End time: 14:35:37 on Apr 04,2025, Elapsed time: 0:00:00
+# Errors: 44, Warnings: 3
+# ** Error: C:/questasim64_10.7c/win64/vlog failed.
+# Error in macro ./run_sim.do line 2
+# C:/questasim64_10.7c/win64/vlog failed.
+#     while executing
+# "vlog ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv +..."
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:36:01 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(35): near "]": syntax error, unexpected ']', expecting ')' or ','.
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# End time: 14:36:02 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_10.7c/win64/vlog failed.
+# Error in macro ./run_sim.do line 2
+# C:/questasim64_10.7c/win64/vlog failed.
+#     while executing
+# "vlog ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv +..."
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:36:16 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:36:16 on Apr 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:36:20 on Apr 04,2025, Elapsed time: 0:04:23
+# Errors: 54, Warnings: 6
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:36:20 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlftdb9iyx".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdb9iyx
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f576 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 41
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:40:17 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(39): near "endtask": syntax error, unexpected endtask, expecting class.
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env.sv(18): near "#": syntax error, unexpected '#', expecting IDENTIFIER or '='.
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Importing package ahb_slv_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env_pkg.sv(18): Recursive import of package ahb_slv_pkg found while importing package ahb_env_pkg.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../ENV/ahb_env.sv(18): syntax error, unexpected #, expecting IDENTIFIER or '='.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(17): Invalid type 'ahb_env'. Please check the type of the variable 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2164) Class or package 'ahb_env' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): Identifier 'ahb_env' is not directly visible.
+#    Found multiple Declaration of 'ahb_env' through wildcard imports from these packages : ahb_env_pkg, ahb_env_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): Illegal to use typedef "ahb_env" as a variable.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** while parsing file included at ../TEST/ahb_test_pkg.sv(24)
+# ** at ../TEST/ahb_base_test.sv(41): near "::": syntax error, unexpected ::, expecting ';'.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at syntax error, unexpected '(', expecting class.
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_test_pkg.sv(18): Recursive import of package ahb_slv_pkg found while importing package ahb_test_pkg.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(17): Invalid type 'ahb_env'. Please check the type of the variable 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'env_h'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2164) Class or package 'ahb_env' not found.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): Identifier 'ahb_env' is not directly visible.
+#    Found multiple Declaration of 'ahb_env' through wildcard imports from these packages : ahb_env_pkg, ahb_env_pkg
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): (vlog-2730) Undefined variable: 'ahb_env'.
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TEST/ahb_base_test.sv(41): syntax error, unexpected ::, expecting ';'.
+# ** Error: ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** while parsing file included at ../ENV/ahb_env_pkg.sv(22)
+# ** at ../TOP/ahb_tb_top.sv(14): Illegal use of 'automatic' for variable declaration (clk).
+# ** Error: (vlog-13069) ** while parsing file included at ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv(19)
+# ** at ../ENV/ahb_env_pkg.sv(24): near "endpackage": syntax error, unexpected "SystemVerilog keyword 'endpackage'", expecting class.
+# End time: 14:40:18 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 20, Warnings: 0
+# ** Error: C:/questasim64_10.7c/win64/vlog failed.
+# Error in macro ./run_sim.do line 2
+# C:/questasim64_10.7c/win64/vlog failed.
+#     while executing
+# "vlog ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv +..."
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:40:41 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:40:42 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 14:40:46 on Apr 04,2025, Elapsed time: 0:04:26
+# Errors: 26, Warnings: 3
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:40:46 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlfta242j3".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfta242j3
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f575 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 41
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:44:53 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:44:53 on Apr 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:44:57 on Apr 04,2025, Elapsed time: 0:04:11
+# Errors: 3, Warnings: 3
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:44:57 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlfty124jq".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfty124jq
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# UVM_WARNING ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv(45) @ 25: reporter [READ_MEM] Address 0x0 not initialized. Returning 0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    1
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [READ_MEM]     1
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:47:47 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:47:47 on Apr 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 14:47:51 on Apr 04,2025, Elapsed time: 0:02:54
+# Errors: 3, Warnings: 2
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:47:51 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlftwvyaad".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftwvyaad
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f575 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 41
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+do run_sim.do
+# QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+# Start time: 14:51:20 on Apr 04,2025
+# vlog -reportprogress 300 ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv ../ENV/AHB_SLAVE_AGENT/ahb_slv_pkg.sv ../ENV/ahb_env_pkg.sv ../TEST/ahb_test_pkg.sv ../TOP/ahb_tb_top.sv "+incdir+../ENV/AHB_MASTER_AGENT" "+incdir+../ENV/AHB_SLAVE_AGENT" "+incdir+../ENV" "+incdir+../TEST" 
+# -- Compiling interface ahb_mas_if
+# -- Compiling package ahb_mas_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../ENV/AHB_MASTER_AGENT/ahb_mas_pkg.sv(18): Using implicit +incdir+C:/questasim64_10.7c/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling interface ahb_slv_if
+# -- Compiling package ahb_slv_pkg
+# -- Compiling package ahb_env_pkg
+# -- Importing package ahb_mas_pkg
+# -- Importing package ahb_slv_pkg
+# -- Compiling package ahb_test_pkg
+# -- Importing package ahb_env_pkg
+# -- Compiling module ahb_tb_top
+# -- Importing package ahb_test_pkg
+# 
+# Top level modules:
+# 	ahb_tb_top
+# End time: 14:51:21 on Apr 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 14:51:25 on Apr 04,2025, Elapsed time: 0:03:34
+# Errors: 3, Warnings: 3
+# vsim -voptargs=""+acc"" ahb_tb_top 
+# Start time: 14:51:25 on Apr 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.ahb_slv_pkg(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_mas_pkg(fast)
+# Loading work.ahb_env_pkg(fast)
+# Loading work.ahb_test_pkg(fast)
+# Loading work.ahb_tb_top(fast)
+# Loading work.ahb_mas_if(fast)
+# Loading work.ahb_slv_if(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: admin  Hostname: LAPTOP-28UVA5JL  ProcessID: 14708
+#           Attempting to use alternate WLF file "./wlft2cwx0y".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2cwx0y
+# ** Error: (vish-4014) No objects found matching '/ahb_tb_top/ahb_slv_vif_0/sdrv_cb/hready'.
+# Executing ONERROR command at macro ././wave.do line 28
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ahb_wrap8_transfer_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------------------------
+# Name                       Type                                       Size  Value
+# ---------------------------------------------------------------------------------
+# uvm_test_top               ahb_wrap8_transfer_test                    -     @480 
+#   env_h                    ahb_env                                    -     @487 
+#     mas_agnt_h[0]          ahb_mas_agent #(ADDR_WIDTH, DATA_WIDTH)    -     @500 
+#       mas_drv_h            ahb_mas_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @536 
+#         rsp_port           uvm_analysis_port                          -     @551 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @543 
+#       mas_mon_h            ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH)  -     @668 
+#         ahb_mon_ap         uvm_analysis_port                          -     @675 
+#       mas_seqr_h           ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH)      -     @559 
+#         rsp_export         uvm_analysis_export                        -     @566 
+#         seq_item_export    uvm_seq_item_pull_imp                      -     @660 
+#         arbitration_queue  array                                      0     -    
+#         lock_queue         array                                      0     -    
+#         num_last_reqs      integral                                   32    'd1  
+#         num_last_rsps      integral                                   32    'd1  
+#     scoreboard_h           ahb_scoreboard                             -     @523 
+#     slv_agnt_h[0]          uvm_agent                                  -     @512 
+#       slv_drv_h            ahb_slv_driver #(ADDR_WIDTH,DATA_WIDTH)    -     @705 
+#         rsp_port           uvm_analysis_port                          -     @720 
+#         seq_item_port      uvm_seq_item_pull_port                     -     @712 
+#       slv_mon_h            ahb_slv_monitor #(ADDR_WIDTH,DATA_WIDTH)   -     @728 
+# ---------------------------------------------------------------------------------
+# 
+# =======================================================
+# --------------------------------------------------------------------
+# Name          Type                                      Size  Value 
+# --------------------------------------------------------------------
+# trans_h       ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @684  
+#   enb_e       enb_type                                  1     HREAD 
+#   burst_e     burst_type                                3     SINGLE
+#   size_e      size_type                                 3     ""    
+#   trans_e     trans_type                                2     IDLE  
+#   hclk        integral                                  1     'h0   
+#   hresetn     integral                                  1     'h0   
+#   haddr_q     da(integral)                              0     -     
+#   hwdata_q    da(integral)                              0     -     
+#   hrdata_q    da(integral)                              0     -     
+#   hstrb       integral                                  5     'hf   
+#   hsize       integral                                  3     'h0   
+#   htrans      integral                                  2     'h0   
+#   hready_out  integral                                  1     'h0   
+#   hresp       integral                                  1     'h0   
+#   hsel        integral                                  1     'h0   
+#   hready      integral                                  1     'h0   
+# --------------------------------------------------------------------
+# UVM_INFO ../ENV/AHB_MASTER_AGENT/ahb_mas_seq_item.sv(119) @ 5: uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h@@mseqs_h.trans_h [DEBUG] Randomized Values: enb_e=1, burst_e=4, size_e=4, burst_len=8
+# ----------------------------------------------------------------------------------------------------------------------------------
+# Name                           Type                                      Size  Value                                              
+# ----------------------------------------------------------------------------------------------------------------------------------
+# trans_h                        ahb_mas_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @757                                               
+#   enb_e                        enb_type                                  1     HWRITE                                             
+#   burst_e                      burst_type                                3     WRAP8                                              
+#   size_e                       size_type                                 3     WORD                                               
+#   trans_e                      trans_type                                2     SEQ                                                
+#   hclk                         integral                                  1     'h0                                                
+#   hresetn                      integral                                  1     'h0                                                
+#   haddr_q                      da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'hf4                                               
+#     [1]                        integral                                  32    'hf8                                               
+#     [2]                        integral                                  32    'hfc                                               
+#     [3]                        integral                                  32    'he0                                               
+#     [4]                        integral                                  32    'he4                                               
+#     [5]                        integral                                  32    'he8                                               
+#     [6]                        integral                                  32    'hec                                               
+#     [7]                        integral                                  32    'hf0                                               
+#   hwdata_q                     da(integral)                              8     -                                                  
+#     [0]                        integral                                  32    'h161                                              
+#     [1]                        integral                                  32    'h3e7                                              
+#     [2]                        integral                                  32    'h1f0                                              
+#     [3]                        integral                                  32    'h2f6                                              
+#     [4]                        integral                                  32    'h3e0                                              
+#     [5]                        integral                                  32    'h3cf                                              
+#     [6]                        integral                                  32    'h88                                               
+#     [7]                        integral                                  32    'h167                                              
+#   hrdata_q                     da(integral)                              0     -                                                  
+#   hstrb                        integral                                  5     'hf                                                
+#   hsize                        integral                                  3     'h0                                                
+#   htrans                       integral                                  2     'h0                                                
+#   hready_out                   integral                                  1     'h0                                                
+#   hresp                        integral                                  1     'h0                                                
+#   hsel                         integral                                  1     'h0                                                
+#   hready                       integral                                  1     'h0                                                
+#   begin_time                   time                                      64    5                                                  
+#   end_time                     time                                      64    5                                                  
+#   depth                        int                                       32    'd2                                                
+#   parent sequence (name)       string                                    7     mseqs_h                                            
+#   parent sequence (full name)  string                                    51    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h.mseqs_h
+#   sequencer                    string                                    43    uvm_test_top.env_h.mas_agnt_h[0].mas_seqr_h        
+# ----------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Name          Type                                      Size  Value
+# -------------------------------------------------------------------
+# trans_h       ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH)  -     @736 
+#   hclk        integral                                  1     'h0  
+#   hresetn     integral                                  1     'h0  
+#   haddr_q     da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hwdata_q    da(integral)                              1     -    
+#     [0]       integral                                  32    'h0  
+#   hrdata_q    da(integral)                              0     -    
+#   hstrb       integral                                  5     'h0  
+#   hsize       integral                                  3     'h0  
+#   htrans      integral                                  2     'h0  
+#   hready_out  integral                                  1     'h0  
+#   hresp       integral                                  1     'h0  
+#   hsel        integral                                  1     'h0  
+#   hready      integral                                  1     'h0  
+# -------------------------------------------------------------------
+# ** Warning: (vsim-3829) Non-existent associative array entry. Returning default value.
+#    Time: 25 ns  Iteration: 3  Process: /ahb_slv_pkg::ahb_slv_driver #(32, 32)::run_phase/#FORK#79_4f61f575 File: ../ENV/AHB_SLAVE_AGENT/ahb_common_object.sv Line: 41
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 155: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DEBUG]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 155 ns  Iteration: 59  Instance: /ahb_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
