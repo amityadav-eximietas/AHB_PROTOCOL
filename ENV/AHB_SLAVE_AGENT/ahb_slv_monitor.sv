@@ -22,19 +22,11 @@ class ahb_slv_monitor #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_monitor;
   // Transaction class handle
   ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h;
 
-  // Constructor
+  // all function and task
   extern function new (string name = "", uvm_component parent = null);
-   
-  // Build phase
   extern function void build_phase(uvm_phase phase);
-    
-  // Run phase
   extern task run_phase(uvm_phase phase);
-  
-  // Monitor task
   extern task monitor();
-  
-  // Read memory task
   extern task mem_read();
 
 endclass
@@ -57,17 +49,15 @@ endfunction
 // Run phase
 task ahb_slv_monitor::run_phase(uvm_phase phase);
   forever begin
-  @(posedge ahb_slv_vif.hclk); 
-       // if (ahb_slv_vif.smon_cb.htrans == 2 || ahb_slv_vif.smon_cb.htrans == 3) begin
-            monitor();
-         if (!ahb_slv_vif.smon_cb.hwrite) begin
-             mem_read();
-      //  end
+    @(posedge ahb_slv_vif.hclk); 
+    monitor();
+    if (!ahb_slv_vif.smon_cb.hwrite) begin
+      mem_read();
     end
 end
 endtask
 
-// Monitor task
+// Monitor task for sampling signal
 task ahb_slv_monitor::monitor();
   @(ahb_slv_vif.smon_cb);
   trans_h.hready_out = ahb_slv_vif.smon_cb.hready_out;  
@@ -89,7 +79,6 @@ task ahb_slv_monitor::mem_read();
     cobj_h.read(addr_copy[i]);
     read_data = cobj_h.mem_hrdata;
     trans_h.hrdata_q.push_back(read_data);
-   // `uvm_info("SLV_MONITOR", $sformatf("Read from addr: 0x%0h, data: 0x%0h", addr_copy[i], read_data), UVM_LOW);
   end
 endtask
 

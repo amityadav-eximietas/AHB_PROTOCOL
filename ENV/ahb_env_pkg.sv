@@ -11,12 +11,10 @@
 package ahb_env_pkg;
 
   import uvm_pkg::*;
-  
   `include "uvm_macros.svh"
-  
   import ahb_mas_pkg::*;
   import ahb_slv_pkg::*;
-  
+
   `include "ahb_env_config.svh"
   `include "ahb_scoreboard.sv"	
   `include "ahb_env.sv"
@@ -24,6 +22,4 @@ package ahb_env_pkg;
 endpackage
 
 `endif
-
-
 

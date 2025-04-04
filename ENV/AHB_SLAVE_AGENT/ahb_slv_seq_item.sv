@@ -7,8 +7,6 @@
 
 `ifndef AHB_SLV_SEQ_ITEM_SV
 `define AHB_SLV_SEQ_ITEM_SV
-
-
 				   
 class ahb_slv_seq_item #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_sequence_item ;
  
@@ -29,8 +27,7 @@ class ahb_slv_seq_item #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_sequenc
   bit hresp;
   bit hsel;
   bit hready;
-	   
-	   
+	   	   
   //factory registration 	   
     `uvm_object_utils_begin(ahb_slv_seq_item#(ADDR_WIDTH,DATA_WIDTH))
 	  `uvm_field_int(hclk, UVM_ALL_ON | UVM_DEC)
@@ -51,7 +48,7 @@ class ahb_slv_seq_item #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_sequenc
 		
 endclass
 
-//--------------constructor new-------------------------------
+// constructor 
 function ahb_slv_seq_item::new(string name = "ahb_slv_seq_item");
   super.new(name);
 endfunction

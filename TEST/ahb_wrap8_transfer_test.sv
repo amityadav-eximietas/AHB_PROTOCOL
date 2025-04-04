@@ -10,29 +10,29 @@
 
 class ahb_wrap8_transfer_test extends ahb_base_test;
 	
-  //-------factory registration
+  // factory registration
   `uvm_component_utils(ahb_wrap8_transfer_test)
 	
-  //sequence handal
-  ahb_wrap8_transfer_seqs mseqs_h;
+  // sequence handal
+  ahb_wrap8_transfer_seqs wrap8_seqs_h;
 	
-  //-------constructor 
-	extern function new(string name = "", uvm_component parent = null);
-		
-	extern task run_phase (uvm_phase phase);
+  // all function and task
+  extern function new(string name = "", uvm_component parent = null);	
+  extern task run_phase (uvm_phase phase);
 	 	
 endclass : ahb_wrap8_transfer_test
 
-//constructor
+// constructor
 function ahb_wrap8_transfer_test::new(string name = "", uvm_component parent = null);
   super.new(name,parent);
 endfunction 
 
-//run phase	
+// run phase	
 task ahb_wrap8_transfer_test::run_phase (uvm_phase phase);
   phase.raise_objection(this);
-  mseqs_h=ahb_wrap8_transfer_seqs::type_id::create("mseqs_h");
-  mseqs_h.start(env_h.mas_agnt_h[0].mas_seqr_h);
+  wrap8_seqs_h=ahb_wrap8_transfer_seqs::type_id::create("wrap8_seqs_h");
+  wrap8_seqs_h.start(env_h.mas_agnt_h[0].mas_seqr_h);
+  #30;
   phase.drop_objection(this);
 endtask
 	

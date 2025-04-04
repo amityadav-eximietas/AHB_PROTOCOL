@@ -33,7 +33,6 @@ interface ahb_slv_if (input logic hclk);
     input hburst, hsize, htrans,hstrb;
     output hready_out;
     output hrdata,hresp;	
-	//$display("haddr=%0d,data=%0d",haddr,hwdata);
   endclocking : sdrv_cb
 		
   // Clocking Block For slave Monitor
@@ -45,17 +44,15 @@ interface ahb_slv_if (input logic hclk);
     input hready_out;
     input hresp;
   endclocking : smon_cb		
-		 		   
+  
+  //modport declaration
   modport SLV_DRV_MP (input hrst_n,
                      clocking sdrv_cb);
   
   modport SLV_MON_MP (input hrst_n,
                      clocking smon_cb);
-					 
-					 
+					 					 
 endinterface
 
 `endif
-	
-  
-  
+	 

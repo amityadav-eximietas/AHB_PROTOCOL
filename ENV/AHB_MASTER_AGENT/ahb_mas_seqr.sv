@@ -13,18 +13,18 @@ class ahb_mas_seqr #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_sequencer #
   // Factory registeration
   `uvm_component_utils(ahb_mas_seqr #(ADDR_WIDTH,DATA_WIDTH))
 
-  //constructor new
+  // all function
   extern function new (string name = "", uvm_component parent = null);
-		
-   //connect phase
-   extern function void connect_phase(uvm_phase phase);
+  extern function void connect_phase(uvm_phase phase);
     
 endclass
 
+// constructor
 function ahb_mas_seqr::new (string name = "", uvm_component parent = null);
   super.new(name,parent);
 endfunction
 
+// connect phase
 function void ahb_mas_seqr::connect_phase(uvm_phase phase);
   super.connect_phase(phase);
 endfunction

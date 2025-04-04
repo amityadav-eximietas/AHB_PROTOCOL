@@ -5,41 +5,40 @@
 //  company name  : eximietas design
 //////////////////////////////////////////////////////////////////
 
+`ifndef AHB_ENV_SV
+`define AHB_ENV_SV
+
 class ahb_env extends uvm_env;
 	
-  //Factory registration
-   `uvm_component_utils(ahb_env)
+  // Factory registration
+  `uvm_component_utils(ahb_env)
 	
-  //Environment Configuration
-    ahb_env_config env_config;
+  // Environment Configuration
+  ahb_env_config env_config;
 	
-  //Master and Slave Agent Handles
-    ahb_mas_agent #(32, 32) mas_agnt_h[];
-    ahb_slv_agent #(32, 32) slv_agnt_h[];
+  // Master and Slave Agent Handles
+  ahb_mas_agent #(32, 32) mas_agnt_h[];
+  ahb_slv_agent #(32, 32) slv_agnt_h[];
 	
-  //scoreboard handal
-    ahb_scoreboard   scoreboard_h;
+  // scoreboard handal
+  ahb_scoreboard   scoreboard_h;
 	
-  //Master and Slave Configurations
-    ahb_mas_config mas_config_h[];
-    ahb_slv_config slv_config_h[];
+  // Master and Slave Configurations
+  ahb_mas_config mas_config_h[];
+  ahb_slv_config slv_config_h[];
 	
-  // Constructor
-    extern function new(string name = "", uvm_component parent = null);
-		
-  // Build Phase
+  // all function
+  extern function new(string name = "", uvm_component parent = null);
   extern function void build_phase (uvm_phase phase);
-       
-	
+       	
 endclass : ahb_env
 
-
-//constructor
+// constructor
 function ahb_env::new(string name = "", uvm_component parent = null);
   super.new(name, parent);
 endfunction 
 
-//build phase
+// build phase
 function void ahb_env::build_phase (uvm_phase phase);
   super.build_phase(phase);
 		
@@ -59,12 +58,11 @@ function void ahb_env::build_phase (uvm_phase phase);
 	  'h0: mas_config_h[i].is_active = UVM_ACTIVE;
 	  'h1: mas_config_h[i].is_active = UVM_PASSIVE;
 	  endcase
-			
-	mas_agnt_h[i] = ahb_mas_agent #(32, 32)::type_id::create($sformatf("mas_agnt_h[%0d]", i), this);
-		   	
-	uvm_config_db #(ahb_mas_config)::set(this, $sformatf("mas_agnt_h[%0d]", i), "mas_config", mas_config_h[i]);
-
-end
+  // creating agent		
+  mas_agnt_h[i] = ahb_mas_agent #(32, 32)::type_id::create($sformatf("mas_agnt_h[%0d]", i), this);
+  // set configdb for mas agent
+  uvm_config_db #(ahb_mas_config)::set(this, $sformatf("mas_agnt_h[%0d]", i), "mas_config", mas_config_h[i]);
+  end
 						
   // ---- Create Slave Agents ----
   slv_agnt_h = new[env_config.no_of_slv_agts];
@@ -75,14 +73,15 @@ end
 		 'h0: slv_config_h[i].is_active = UVM_ACTIVE;  // First slave agent ACTIVE
 		 'h1: slv_config_h[i].is_active = UVM_PASSIVE; // Second slave agent PASSIVE
 	  endcase
-		
+  // creating slave agent
   slv_agnt_h[i] = ahb_slv_agent #(32,32)::type_id::create($sformatf("slv_agnt_h[%0d]", i), this);
-			
+  // set configdb for slave agent			
   uvm_config_db #(ahb_slv_config)::set(this, $sformatf("slv_agnt_h[%0d]", i), "slv_config", slv_config_h[i]);
-
-end
+  end
 		
-  //creating scoreboard
+  // creating scoreboard
    scoreboard_h = ahb_scoreboard::type_id::create("scoreboard_h", this);
 		
 endfunction
+
+`endif

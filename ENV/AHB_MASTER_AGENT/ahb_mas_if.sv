@@ -12,7 +12,7 @@ interface ahb_mas_if (input logic hclk);
 
   parameter ADDR_WIDTH=32, DATA_WIDTH = 32; 
 			
-  logic hrst_n;					// Active Low Reset
+  logic hrst_n; // Active Low Reset
   logic hwrite;
   logic [ADDR_WIDTH-1:0] haddr; 
   logic [DATA_WIDTH-1:0] hwdata; 
@@ -20,13 +20,11 @@ interface ahb_mas_if (input logic hclk);
   logic [2:0] hburst;
   logic [2:0] hsize;
   logic [1:0] htrans;
-  logic hready;     //TODO
-  logic hsel;        //TODO
+  logic hready;     
+  logic hsel;        
   logic hresp;
   logic hstrb;
-	
-  // logic hreadyout;
-		
+			
   // Clocking Block For Master Driver 
   clocking mdrv_cb @(posedge hclk);
     default input #1 output #1;
@@ -45,15 +43,14 @@ interface ahb_mas_if (input logic hclk);
     input hready;
     input hresp;
   endclocking : mmon_cb		
-		 
-		   
+  
+  // modport declaration
   modport MS_DRV_MP (input hrst_n,
                      clocking mdrv_cb);
   
   modport MS_MON_MP (input hrst_n,
                      clocking mmon_cb);
 					 
-  
 endinterface
 
 `endif

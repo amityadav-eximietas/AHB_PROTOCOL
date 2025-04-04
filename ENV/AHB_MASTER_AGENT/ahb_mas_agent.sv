@@ -24,21 +24,19 @@ class ahb_mas_agent #(int ADDR_WIDTH=32, int DATA_WIDTH=32) extends uvm_agent;
   ahb_mas_seqr    #(ADDR_WIDTH, DATA_WIDTH) mas_seqr_h;
   ahb_mas_monitor #(ADDR_WIDTH, DATA_WIDTH) mas_mon_h;
 
-  // constructor new
+  // all function
   extern function new(string name = "", uvm_component parent = null);
-
-  // build phase
   extern function void build_phase(uvm_phase phase);
-
-  // connect phase
   extern function void connect_phase(uvm_phase phase);
 
 endclass: ahb_mas_agent
 
+// constructor
 function ahb_mas_agent::new(string name = "", uvm_component parent = null);
   super.new(name, parent);
 endfunction
 
+// build_phase for creating handal and config_db
 function void ahb_mas_agent::build_phase(uvm_phase phase);
     // create handle of master config 
     mas_config_h = ahb_mas_config::type_id::create("mas_config_h", this);
@@ -59,18 +57,16 @@ function void ahb_mas_agent::build_phase(uvm_phase phase);
     // get virtual interface 
     if (!uvm_config_db #(virtual ahb_mas_if #(ADDR_WIDTH, DATA_WIDTH))::get(this, "", "ahb_mas_vif", ahb_mas_vif))
       `uvm_fatal("AGENT_VIRTUAL_INTERFACE", "Master Interface is not available")
+
 endfunction: build_phase
 
+// connect phase for connecting driver, sequencer
 function void ahb_mas_agent::connect_phase(uvm_phase phase); 
-  super.connect_phase(phase);
-  
-  // if agent is active, connect driver port and sequencer export 
-  // and connect driver interface with this interface 
-  if (mas_config_h.is_active == UVM_ACTIVE) begin
-    mas_drv_h.seq_item_port.connect(mas_seqr_h.seq_item_export); 
-    mas_drv_h.ahb_mas_vif = this.ahb_mas_vif; 	
-  end 
-
+  super.connect_phase(phase); 
+    if (mas_config_h.is_active == UVM_ACTIVE) begin
+      mas_drv_h.seq_item_port.connect(mas_seqr_h.seq_item_export); 
+      mas_drv_h.ahb_mas_vif = this.ahb_mas_vif; 	
+    end 
   // connect master interface with this interface 
   mas_mon_h.ahb_mas_vif = this.ahb_mas_vif;
 endfunction: connect_phase

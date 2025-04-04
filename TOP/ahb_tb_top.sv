@@ -38,8 +38,9 @@ assign ahb_mas_vif_0.hrdata   = ahb_slv_vif_0.hrdata;
 
   initial 
     begin
+         @(posedge clk);
 	  ahb_mas_vif_0.hrst_n = 1'b0;
-	//  repeat(2)
+	  //repeat(5)
           @(posedge clk);
 	  ahb_mas_vif_0.hrst_n = 1'b1;
 	//  repeat(5) @(negedge clk);
@@ -49,7 +50,7 @@ assign ahb_mas_vif_0.hrdata   = ahb_slv_vif_0.hrdata;
  initial begin
    uvm_config_db #(virtual ahb_mas_if  #(32,32))::set(uvm_root::get(),"uvm_test_top.env_h.mas_agnt_h[0]","ahb_mas_vif",ahb_mas_vif_0);
    uvm_config_db #(virtual ahb_slv_if  #(32,32))::set(uvm_root::get(),"uvm_test_top.env_h.slv_agnt_h[0]","ahb_slv_vif",ahb_slv_vif_0);
-   run_test("ahb_wrap8_transfer_test");
+   run_test("ahb_wrap16_transfer_test");
  end
  
  endmodule

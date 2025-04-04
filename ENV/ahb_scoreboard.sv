@@ -15,22 +15,12 @@ class ahb_scoreboard extends uvm_scoreboard;
   // Transaction class handle
   ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h;
   
-  // Constructor
+  // all function and task
   extern function new(string name="ahb_scoreboard", uvm_component parent=null);
-  
-  // Build phase
   extern function void build_phase(uvm_phase phase);
-  
-  // Write function for data from monitor
   extern function void write_mas_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h2);
-  
-  // Write function for expected data from reference model
   extern function void write_slv_mon(ahb_mas_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h3);
-  
-  // Run phase
   extern task run_phase(uvm_phase phase);
-  
-  // Compare task
   extern task compare();
 
 endclass: ahb_scoreboard

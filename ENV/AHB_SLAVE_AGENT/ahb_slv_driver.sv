@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////
-//  file name     : ahb_slv_driver.sv
+//  file name     : ahb_slave_driver.sv
 //  owner name    : amit yadav & anupam mathur
 //  module name   : ahb slave driver class
 //  company name  : eximietas design
@@ -9,17 +9,25 @@
 `define AHB_SLV_DRIVE_SV
 
 typedef enum {NOWAIT, WAIT} wait_enum;
-class ahb_slv_driver #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_driver #(ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH)); 
-   
+
+class ahb_slv_driver #(int ADDR_WIDTH = 32, DATA_WIDTH = 32) extends uvm_driver #(ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH)); 
+
   // Factory Registration
   `uvm_component_utils(ahb_slv_driver #(ADDR_WIDTH, DATA_WIDTH))
-  
-  //variable
+
+  // Variables
   int count = 0;
   int rand_count = 0;
+  bit [ADDR_WIDTH-1:0] read_addr;
+  int data_count = 0;
+  int addr_count = 0;
+  int burst_len;
 
-  //handal for enum
+  //handle of enum
   wait_enum wenum;
+
+  //event for handshaking
+  event addr_sam_done;
 
   // Virtual Interface
   virtual ahb_slv_if #(ADDR_WIDTH, DATA_WIDTH) ahb_slv_vif;
@@ -27,124 +35,145 @@ class ahb_slv_driver #(int ADDR_WIDTH=32, DATA_WIDTH = 32) extends uvm_driver #(
   // Common object handle
   ahb_common_object cobj_h;
 
-  // Transaction class handle
+  //Transaction class handle
   ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH) trans_h;
 
-  // Constructor
+  //all function and task
   extern function new (string name = "", uvm_component parent = null);
-
-  // Build phase
   extern function void build_phase(uvm_phase phase);
-
-  // Run phase
   extern task run_phase(uvm_phase phase);
-
-  // Initialize task
   extern task initialize();
-
-  // Task to sample data from interface
-  extern task sample_data();
-
-  // Task to write data to memory
   extern task mem_write();
-
-  // Task to read data from memory
   extern task mem_read();
+  extern task sample_data();
+  extern task sample_que_addr();
+  extern task sample_que_data();
+  extern task burst_len_calculation();  
 
 endclass
 
-// Constructor
-function ahb_slv_driver::new(string name = "", uvm_component parent = null);
+// constructor
+function ahb_slv_driver::new (string name = "", uvm_component parent = null);
   super.new(name, parent);
 endfunction
 
-// Build phase
+// build phase for geting common objecct using config_db
 function void ahb_slv_driver::build_phase(uvm_phase phase);
   super.build_phase(phase);
-
   trans_h = ahb_slv_seq_item #(ADDR_WIDTH, DATA_WIDTH)::type_id::create("trans_h");
-
-  // Get common object
-  if (!uvm_config_db #(ahb_common_object)::get(this, "", "common_object", cobj_h))
-    `uvm_fatal("COMMON_OBJECT_DRV", "common object is not available in slave driver")
+  if (!uvm_config_db #(ahb_common_object)::get(this, "", "common_object", cobj_h)) begin
+      `uvm_fatal("COMMON_OBJECT_DRV", "common object is not available in slave driver")
+  end
 endfunction
 
-// Run phase
+// run phase
 task ahb_slv_driver::run_phase(uvm_phase phase);
-  $display("=======================================================");
-  forever begin
-    @(posedge ahb_slv_vif.hclk); 
-
-    // Handle reset condition
-    while (!ahb_slv_vif.sdrv_cb.hrst_n) begin
-      initialize();
-      @(posedge ahb_slv_vif.hclk); 
+  @(posedge ahb_slv_vif.hclk); 
+    wait (!ahb_slv_vif.sdrv_cb.hrst_n) begin
+        initialize();
     end
-
-    // Capture and process transfer
-    if (ahb_slv_vif.sdrv_cb.htrans == 2 || ahb_slv_vif.sdrv_cb.htrans == 3) begin
-      sample_data();
+    forever begin
+      @(posedge ahb_slv_vif.hclk); 
+      if (ahb_slv_vif.sdrv_cb.htrans == 2 || ahb_slv_vif.sdrv_cb.htrans == 3) begin
+        sample_data();
       if (ahb_slv_vif.sdrv_cb.hwrite)
         mem_write();
-      else 
+      else begin
+	   addr_count = 0;     	
         mem_read();
-    end
+    	   end
+     end
   end
 endtask
 
-// Initialize outputs during reset
+// task to set initial value
 task ahb_slv_driver::initialize();
-  ahb_slv_vif.sdrv_cb.hready_out <= 1'b0;
-  ahb_slv_vif.sdrv_cb.hrdata     <= 1'b0;
+  ahb_slv_vif.sdrv_cb.hready_out <= 1'b1;
+  ahb_slv_vif.sdrv_cb.hrdata     <= '0;
   wenum = NOWAIT;
-  rand_count = $urandom_range(1,4);
+  count = 0;
+  rand_count = $urandom_range(1, 4);
 endtask    
+
 
 // Memory write task
 task ahb_slv_driver::mem_write();
-  cobj_h.write(ahb_slv_vif.sdrv_cb.haddr, ahb_slv_vif.sdrv_cb.hwdata);  
+  @(ahb_slv_vif.sdrv_cb);
+  cobj_h.write(trans_h.haddr_q.pop_front(), trans_h.hwdata_q.pop_front());  
 endtask  
 
-// Memory read task with separate address copy
+// Memory read task 
 task ahb_slv_driver::mem_read();
-  bit [ADDR_WIDTH-1:0] addr_copy[$] = trans_h.haddr_q;
-  bit [DATA_WIDTH-1:0] read_data;
-
-  foreach (addr_copy[i]) begin
-    cobj_h.read(addr_copy[i]);
-    read_data = cobj_h.mem_hrdata;
-
-    @(ahb_slv_vif.sdrv_cb);
-    ahb_slv_vif.sdrv_cb.hrdata <= read_data;
-  end
+  read_addr = trans_h.haddr_q.pop_front();
+  cobj_h.read(read_addr);
+  @(ahb_slv_vif.sdrv_cb);
+  ahb_slv_vif.sdrv_cb.hrdata <= cobj_h.mem_hrdata;
+  `uvm_info("READ_MEM", $sformatf("Read: Addr=0x%0h, Data=0x%0h", read_addr, cobj_h.mem_hrdata), UVM_MEDIUM)
 endtask 
 
-// Sample data task
+//  task for driving signal
 task ahb_slv_driver::sample_data();
-  @(ahb_slv_vif.sdrv_cb);
-  
-  if(wenum == NOWAIT)begin
-     ahb_slv_vif.sdrv_cb.hready_out <= 1'b1;
-  end else begin
-    count++;
-     //we want  to wait for two cycles thats why we have added 2
-    if((rand_count <=count) && (count < (rand_count+2)))begin 
-      ahb_slv_vif.sdrv_cb.hready_out <= 1'b0;
-    end else begin
-      ahb_slv_vif.sdrv_cb.hready_out <= 1'b1;
-    end
-  end
-
-  //`uvm_info("SLV_DRV_SAM_DATA",$sformatf("Value of rcount : %0d", rand_count), UVM_NONE)
-
+  // sample signals 
   trans_h.hwrite = ahb_slv_vif.sdrv_cb.hwrite; 
   trans_h.hburst = ahb_slv_vif.sdrv_cb.hburst;
   trans_h.hsize  = ahb_slv_vif.sdrv_cb.hsize;
   trans_h.htrans = ahb_slv_vif.sdrv_cb.htrans;
   trans_h.hstrb  = ahb_slv_vif.sdrv_cb.hstrb;
+    
+  // calling burst_len calculation task
+  burst_len_calculation();
 
+  fork
+    sample_que_addr();
+    sample_que_data();
+  join_any
+
+  if (wenum == NOWAIT) begin
+      ahb_slv_vif.sdrv_cb.hready_out <= 1'b1;
+  end else begin
+      count++;
+      if ((rand_count <= count) && (count < (rand_count + 2))) begin
+        ahb_slv_vif.sdrv_cb.hready_out <= 1'b0;
+      end else begin
+        ahb_slv_vif.sdrv_cb.hready_out <= 1'b1;
+      end
+    end
+endtask
+  
+// task for sample addr
+task ahb_slv_driver::sample_que_addr();
+  addr_count++;	  
+  if(addr_count < burst_len) begin	  
   trans_h.haddr_q.push_back(ahb_slv_vif.sdrv_cb.haddr);
-  trans_h.hwdata_q.push_back(ahb_slv_vif.sdrv_cb.hwdata);
+  $display("addrss is ------------------%0p", trans_h.haddr_q);
+  end
+  ->addr_sam_done;
+endtask
+  
+// task for sample data
+task ahb_slv_driver::sample_que_data();
+  wait(addr_sam_done.triggered);
+  @(ahb_slv_vif.sdrv_cb);
+  data_count++;
+  if(data_count < burst_len) begin
+    trans_h.hwdata_q.push_back(ahb_slv_vif.sdrv_cb.hwdata);
+    $display("slave data is ------------------%0p", trans_h.hwdata_q);
+  end
+endtask
+
+// burst len calculation
+task ahb_slv_driver::burst_len_calculation();      
+  case(trans_h.hburst)
+     0 : burst_len=2;  //single
+     1 : burst_len=21; //incr   //TODO
+     2 : burst_len=5;  //wrap4
+     3 : burst_len=5;  //incr4
+     4 : burst_len=9;  //wrap8
+     5 : burst_len=9;  //incr8
+     6 : burst_len=17; //wrap16
+     7 : burst_len=17; //incr16
+    default :burst_len= 0;
+  endcase
 endtask
 
 `endif

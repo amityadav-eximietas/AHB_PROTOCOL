@@ -16,7 +16,7 @@ class ahb_slv_agent #(int ADDR_WIDTH = 32, int DATA_WIDTH = 32) extends uvm_agen
   // Factory Registration
   `uvm_component_param_utils(ahb_slv_agent #(ADDR_WIDTH,DATA_WIDTH))
 
-  // Virtual interface
+  // Virtual interface handle 
   virtual ahb_slv_if #(ADDR_WIDTH, DATA_WIDTH) ahb_slv_vif;
   
   // Handles for components and config
@@ -24,23 +24,19 @@ class ahb_slv_agent #(int ADDR_WIDTH = 32, int DATA_WIDTH = 32) extends uvm_agen
   ahb_slv_monitor #(ADDR_WIDTH, DATA_WIDTH) slv_mon_h;
   ahb_common_object cobj_h;
   
-  // Constructor
+  // all function and task
   extern function new (string name = "", uvm_component parent = null);
-  
-  // Build Phase
-  extern function void build_phase(uvm_phase phase);
-     
-  // Connect Phase
+  extern function void build_phase(uvm_phase phase); 
   extern function void connect_phase(uvm_phase phase);
 
 endclass
 
-//constructor
+// constructor
 function ahb_slv_agent::new (string name = "", uvm_component parent = null);
   super.new(name, parent);
 endfunction
 
-//build phase 
+// build phase for handal creation and config set-get
 function void ahb_slv_agent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
@@ -70,14 +66,12 @@ function void ahb_slv_agent::build_phase(uvm_phase phase);
     `uvm_fatal("AGNET_VIRTUAL_INTERFACE", "Slave Interface is not available")
 endfunction
 
-//connect phase  
+  //connect phase  connecting interface
 function void ahb_slv_agent::connect_phase(uvm_phase phase);
-  super.connect_phase(phase);
-    
+  super.connect_phase(phase);  
   // Connect virtual interfaces
   slv_drv_h.ahb_slv_vif = this.ahb_slv_vif;
   slv_mon_h.ahb_slv_vif = this.ahb_slv_vif;
 endfunction
   
-
 `endif

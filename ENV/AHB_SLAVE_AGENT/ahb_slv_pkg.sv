@@ -11,9 +11,7 @@
 package ahb_slv_pkg;
 
   import uvm_pkg::*;
-  
   `include "uvm_macros.svh"
- // import ahb_mas_pkg::*;
   `include "ahb_slv_seq_item.sv"
   `include "ahb_slv_config.svh"
   `include "ahb_common_object.sv"
@@ -24,6 +22,4 @@ package ahb_slv_pkg;
 endpackage
 
 `endif
-
-
 

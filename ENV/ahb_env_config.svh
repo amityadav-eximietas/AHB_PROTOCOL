@@ -20,11 +20,11 @@ class ahb_env_config extends uvm_object;
   `uvm_field_int(no_of_slv_agts, UVM_ALL_ON | UVM_DEC)
   `uvm_object_utils_end
   
-   // Constructor
    extern function new (string name="");
   
 endclass
 
+// constructor
 function ahb_env_config::new (string name="");
   super.new(name);
  endfunction
